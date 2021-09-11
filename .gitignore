@@ -1,7 +1,13 @@
 # git stuff
 credentials.txt
 
-
+# files
+newData/
+newData/*
+data
+data/*
+junk
+junk/*
 
 
 # Byte-compiled / optimized / DLL files
