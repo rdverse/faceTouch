@@ -30,9 +30,27 @@ def get_labels():
     return finalLabels.flatten()
 
 
-def HeuristicBuilder(feature):
+def HeuristicBuilder(samples):
+    heuristicFeatures = list()
+    # feature is usually of shape (4268,50,8)
+    #  iterate over each sample
+    for sample in samples:
+        # iterate over each feature in a sample
+        
+        featureSample = list()
+        for slice in range(sample.shape[-1]):
+            feature = _get_heuristic_feature(np.take(sample, slice, axis=1))
+            # print("back to function")
+            featureSample.extend(feature)
+
+        heuristicFeatures.append(featureSample) 
+
+    return heuristicFeatures
+
+def _get_heuristic_feature(feature):
     # Time Domain Features
     heuristicFeature = np.empty(0)
+    
     feature = feature.flatten()
     #index x,y,z at a time
 
