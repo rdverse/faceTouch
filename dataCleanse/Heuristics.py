@@ -5,7 +5,7 @@ import numpy as np
 def get_labels():
     labels = [
         'mean',
-        'variance',
+   #     'variance',
         'standard_deviation',
         'kurtosis',
         'skewness',
@@ -13,7 +13,7 @@ def get_labels():
         'maximum_value',
         '25_percentile',
         '75_percentile',
-        'inter_quartile_range',
+    #    'inter_quartile_range',
         'auto_correlation_sequence',
     ]
 
@@ -56,7 +56,7 @@ def _get_heuristic_feature(feature):
 
     heuristics = {
         'mean': np.mean(feature),
-        'variance': np.var(feature),
+  #      'variance': np.var(feature),
         'std_dev': np.std(feature),
         'kurtosis': kurtosis(feature.flatten()),
         'skewness': skew(a=feature.flatten()),
@@ -64,7 +64,7 @@ def _get_heuristic_feature(feature):
         'max_val': feature.max(),
         'perc25': np.percentile(feature, 25),
         'perc75': np.percentile(feature, 75),
-        'inter_quart_range': iqr(feature),
+    #    'inter_quart_range': iqr(feature),
         'auto_corr_seq': _autocorrelation(feature),
     }
 
